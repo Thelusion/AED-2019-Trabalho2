@@ -1,0 +1,41 @@
+String linha;
+
+int ano,semana,bola1,bola2,bola3,bola4,bola5,estrela1,estrela2;
+
+File file=new File("euromilhoes.txt");
+Scanner leitor=null;
+try {
+	leitor = new Scanner(file);
+} catch (FileNotFoundException e) {
+	System.out.println("Ficheiro não encontrado");
+	e.printStackTrace();
+}
+while(leitor.hasNextLine()){
+	linha=leitor.nextLine();
+	System.out.println(linha);
+	
+	Scanner lerString=new Scanner(linha);
+	
+	ano=lerString.nextInt();
+	semana=lerString.nextInt();
+	bola1=lerString.nextInt();
+	bola2=lerString.nextInt();
+	bola3=lerString.nextInt();
+	bola4=lerString.nextInt();
+	bola5=lerString.nextInt();
+	estrela1=lerString.nextInt();
+	estrela2=lerString.nextInt();
+	
+	System.out.println("ano: "+ano);
+	System.out.println("semana: "+semana);
+	System.out.println("bola 1: "+bola1);
+	System.out.println("bola 2: "+bola2);
+	System.out.println("bola 3: "+bola3);
+	System.out.println("bola 4: "+bola4);
+	System.out.println("bola 5: "+bola5);
+	System.out.println("estrela 1: "+estrela1);
+	System.out.println("estrela 2: "+estrela2);
+	
+	lerString.close();
+}
+leitor.close();

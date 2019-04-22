@@ -1,0 +1,63 @@
+import java.util.Scanner;
+//---------------------------------------------------------------------------------------------------------------------
+public class MenuExemplo {
+//---------------------------------------------------------------------------------------------------------------------
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		Vector oMeuVector=new Vector();
+	
+		int opcao=0;		
+		do{
+			menu();
+			opcao=lerInt(sc,"Opcao:",0,4);
+			switch(opcao){
+				case 1:
+					//chamar aqui a função que executa o pretendido
+					break;
+				case 2:
+					//chamar aqui a função que executa o pretendido
+					break;
+				case 3:
+					//chamar aqui a função que executa o pretendido
+					break;
+				case 4:
+					//chamar aqui a função que executa o pretendido
+					break;
+			}
+		}while(opcao!=0);
+		sc.close();
+	}
+//---------------------------------------------------------------------------------------------------------------------	
+	private static void menu(){
+		System.out.println("1 - Ler o enunciado");
+		System.out.println("2 - Perceber bem o que se pretende");
+		System.out.println("3 - Implementar");
+		System.out.println("4 - e testar");
+		System.out.println("0 - Terminar");
+	}
+//---------------------------------------------------------------------------------------------------------------------
+	private static int lerInt(Scanner sc,String msg,int min,int max){
+		int res=0;
+		boolean ok=true;
+		do{
+			ok=true;
+			System.out.println(msg);
+			try{
+				res=sc.nextInt();
+			}
+			catch(Exception e){
+				System.out.println("ERRO DE INPUT - Por favor introduza um numero inteiro");
+				ok=false;
+				sc.next();
+			}
+			if(res<min||res>max){
+				System.out.println("ERRO DE INPUT - o valor a introduzir deve estar no intervalo ["+min+","+max+"]");
+				ok=false;
+			}
+		}while(!ok);	
+		sc.nextLine();
+		return res;
+	}
+
+//---------------------------------------------------------------------------------------------------------------------
+}
