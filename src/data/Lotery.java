@@ -6,16 +6,33 @@ public class Lotery {
 	
 	private int year;
 	private int week;
-	private ArrayList<Integer> balls;
-	private ArrayList<Integer> stars;
+	private ArrayList<Integer> balls = new ArrayList<Integer>();
+	private ArrayList<Integer> stars = new ArrayList<Integer>();
 	
 	public Lotery(int year, int week) {
 		
 		this.setYear(year);
 		this.setWeek(week);
-		this.balls = new ArrayList<Integer>();
-		this.stars = new ArrayList<Integer>();
 		
+	}
+	
+	public Lotery(String str) {
+		
+		String[] strKeys = str.split(" ");
+		int[] intKeys = new int[strKeys.length];
+		
+		for(int i = 0; i < strKeys.length; i++)
+			intKeys[i] = Integer.parseInt(strKeys[i]);
+		
+		this.setYear(intKeys[0]);
+		this.setWeek(intKeys[1]);
+		
+		for (int i = 2; i < 7; i++)
+			this.addBall(intKeys[i]);
+		
+		for (int i = 7; i < 9; i++)
+			this.addStar(intKeys[i]);;
+			
 	}
 	
 	public void addBall(int n) {
@@ -43,7 +60,7 @@ public class Lotery {
 		return week;
 	}
 	
-	public final List<Integer> getBall(int i) {
+	public final List<Integer> getBalls() {
 		return Collections.unmodifiableList(this.balls);
 	}
 	
